@@ -9,6 +9,6 @@ public class FunRestController {
     // '/' karakteri girildiğinde "Hello World" yazdıracak
 
     @GetMapping("/")
-    public String sayHello() { return "Hello World";}
+    public String sayHello() { return "Test";}
 
 }
