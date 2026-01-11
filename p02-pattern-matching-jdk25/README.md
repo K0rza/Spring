@@ -1,4 +1,4 @@
-#Project Description
+# Project Description
 
 An example project for pattern matching in JDK25.
 
