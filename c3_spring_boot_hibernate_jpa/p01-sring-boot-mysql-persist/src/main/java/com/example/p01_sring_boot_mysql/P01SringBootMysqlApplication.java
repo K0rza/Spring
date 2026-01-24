@@ -1,5 +1,7 @@
 package com.example.p01_sring_boot_mysql;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,13 +20,16 @@ public class P01SringBootMysqlApplication {
 	@Bean
 	public CommandLineRunner runner(StudentDAO studentDAO) {
 		return _ ->  {
-			createStudent(studentDAO);
+			List.of(
+				new Student("enes", "ilhan", "h_enes_1997@hotmail.com"),
+				new Student("yasemin", "ilhan", "yaseminbilge01@gmail.com"),
+				new Student("ali", "yilmaz", "yilmaz02@yahoo.com"),
+				new Student("ahmet", "yildirim", "ayildirim@hotmail.com")
+			).forEach(item -> createStudent(item, studentDAO));
 		};
 	}
 
-	private static void createStudent(StudentDAO studentDAO) {
-		Student student = new Student("enes", "ilhan", "h_enes_1997@hotmail.com");
-
+	private static void createStudent(Student student, StudentDAO studentDAO) {
 		System.out.println("Student template is created.");
 
 		System.out.println("Database transaction is starting.");
